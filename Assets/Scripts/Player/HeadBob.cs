@@ -9,6 +9,7 @@ namespace Player
         public CurveControlledBob MotionBob = new CurveControlledBob();
         public LerpControlledBob JumpAndLandingBob = new LerpControlledBob();
         public RigidBodyFirstPersonController RigidBodyFirstPersonController;
+        public GroundDetector GroundDetector;
         public float StrideInterval;
         [Range(0f, 1f)] public float RunningStrideLengthen;
 
@@ -24,7 +25,7 @@ namespace Player
         private void Update()
         {
             Vector3 newCameraPosition;
-            if (RigidBodyFirstPersonController.Velocity.magnitude > 0 && RigidBodyFirstPersonController.Grounded)
+            if (RigidBodyFirstPersonController.Velocity.magnitude > 0 && GroundDetector.Grounded)
             {
                 Camera.transform.localPosition = MotionBob.DoHeadBob(RigidBodyFirstPersonController.Velocity.magnitude *
                                                                      (RigidBodyFirstPersonController.Running
@@ -41,12 +42,12 @@ namespace Player
 
             Camera.transform.localPosition = newCameraPosition;
 
-            if (!_previouslyGrounded && RigidBodyFirstPersonController.Grounded)
+            if (!_previouslyGrounded && GroundDetector.Grounded)
             {
                 StartCoroutine(JumpAndLandingBob.DoBobCycle());
             }
 
-            _previouslyGrounded = RigidBodyFirstPersonController.Grounded;
+            _previouslyGrounded = GroundDetector.Grounded;
         }
     }
 }

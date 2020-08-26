@@ -29,7 +29,7 @@ namespace Utility
             // get the length of the curve in time
             _time = BobCurve[BobCurve.length - 1].time;
         }
-        
+
         public Vector3 DoHeadBob(float speed)
         {
             var xPos = _originalCameraPosition.x + BobCurve.Evaluate(_cyclePositionX) * HorizontalBobRange;

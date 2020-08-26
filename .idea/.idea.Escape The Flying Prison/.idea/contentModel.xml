@@ -7,17 +7,25 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
-          <e p="GunShoot.cs" t="Include" />
+          <e p="Agent" t="Include">
+            <e p="AgentManager.cs" t="Include" />
+            <e p="AgentMovement.cs" t="Include" />
+          </e>
           <e p="Player" t="Include">
-            <e p="FirstPersonController.cs" t="Include" />
             <e p="HeadBob.cs" t="Include" />
             <e p="MouseLook.cs" t="Include" />
             <e p="RigidBodyFirstPersonController.cs" t="Include" />
+            <e p="Shoot.cs" t="Include" />
           </e>
-          <e p="SimpleCameraController.cs" t="Include" />
+          <e p="Shared" t="Include">
+            <e p="FallDamage.cs" t="Include" />
+            <e p="Health.cs" t="Include" />
+          </e>
           <e p="Utility" t="Include">
+            <e p="AdvancedSettings.cs" t="Include" />
             <e p="CurveControlledBob.cs" t="Include" />
             <e p="FOVKick.cs" t="Include" />
+            <e p="GroundDetector.cs" t="Include" />
             <e p="LerpControlledBob.cs" t="Include" />
           </e>
         </e>

@@ -14,7 +14,7 @@ namespace Player
         public bool Smooth;
         public float SmoothTime = 5f;
         public bool LockCursor = true;
-        
+
         private Quaternion _characterTargetRot;
         private Quaternion _cameraTargetRot;
         private bool _cursorIsLocked = true;
@@ -24,7 +24,7 @@ namespace Player
             _characterTargetRot = character.localRotation;
             _cameraTargetRot = camera.localRotation;
         }
-        
+
         public void LookRotation(Transform character, Transform camera)
         {
             var yRot = Input.GetAxis("Mouse X") * XSensitivity;

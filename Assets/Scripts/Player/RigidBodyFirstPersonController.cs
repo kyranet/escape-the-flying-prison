@@ -1,8 +1,11 @@
 ﻿using System;
 using UnityEngine;
+using Utility;
 
 namespace Player
 {
+    [RequireComponent(typeof(GroundDetector))]
+    [RequireComponent(typeof(AudioSource))]
     [RequireComponent(typeof(Rigidbody))]
     [RequireComponent(typeof(CapsuleCollider))]
     public class RigidBodyFirstPersonController : MonoBehaviour
@@ -57,45 +60,41 @@ namespace Player
 
             public bool Running { get; private set; }
         }
-        
-        [Serializable]
-        public class AdvancedSettings
-        {
-            // Distance for checking if the controller is grounded ( 0.01f seems to work best for this )
-            public float GroundCheckDistance = 0.01f;
 
-            public float StickToGroundHelperDistance = 0.5f; // stops the character
-            public float SlowDownRate = 20f; // rate at which the controller comes to a stop when there is no input
-            public bool AirControl; // can the user control the direction that is being moved in the air
-
-            // Reduce the radius by that ratio to avoid getting stuck in wall (a value of 0.1f is nice)
-            [Tooltip("set it to 0.1 or more if you get stuck in wall")]
-            public float ShellOffset;
-        }
-        
         public Camera Camera;
         public MovementSettings Movement = new MovementSettings();
         public MouseLook MouseLook = new MouseLook();
         public AdvancedSettings Advanced = new AdvancedSettings();
+        public float StepLength = 1f;
 
         private Rigidbody _rigidBody;
         private CapsuleCollider _capsule;
+        private GroundDetector _groundDetector;
         private float _yRotation;
-        private Vector3 _groundContactNormal;
         private bool _jump, _previouslyGrounded;
-        
+        private float _lastStep;
+
         public Vector3 Velocity => _rigidBody.velocity;
-        public bool Grounded { get; private set; }
         public bool Jumping { get; private set; }
         public bool Running => Movement.Running;
-        
+
+        [SerializeField]
+        private AudioClip[] FootstepSounds; // an array of footstep sounds that will be randomly selected from.
+
+        [SerializeField] private AudioClip JumpSound; // the sound played when character leaves the ground.
+        [SerializeField] private AudioClip LandSound; // the sound played when character touches back on ground.
+
+        private AudioSource _audioSource;
+
         private void Start()
         {
             _rigidBody = GetComponent<Rigidbody>();
             _capsule = GetComponent<CapsuleCollider>();
+            _audioSource = GetComponent<AudioSource>();
+            _groundDetector = GetComponent<GroundDetector>();
             MouseLook.Init(transform, Camera.transform);
         }
-        
+
         private void Update()
         {
             RotateView();
@@ -108,15 +107,14 @@ namespace Player
 
         private void FixedUpdate()
         {
-            GroundCheck();
             var input = GetInput();
 
             if ((Mathf.Abs(input.x) > float.Epsilon || Mathf.Abs(input.y) > float.Epsilon) &&
-                (Advanced.AirControl || Grounded))
+                (Advanced.AirControl || _groundDetector.Grounded))
             {
                 // always move along the camera forward as it is the direction that it being aimed at
                 var desiredMove = Camera.transform.forward * input.y + Camera.transform.right * input.x;
-                desiredMove = Vector3.ProjectOnPlane(desiredMove, _groundContactNormal).normalized;
+                desiredMove = Vector3.ProjectOnPlane(desiredMove, _groundDetector.GroundContactNormal).normalized;
 
                 desiredMove.x *= Movement.CurrentTargetSpeed;
                 desiredMove.z *= Movement.CurrentTargetSpeed;
@@ -126,9 +124,11 @@ namespace Player
                 {
                     _rigidBody.AddForce(desiredMove * SlopeMultiplier(), ForceMode.Impulse);
                 }
+
+                PlayFootStepAudio();
             }
 
-            if (Grounded)
+            if (_groundDetector.Grounded)
             {
                 _rigidBody.drag = 5f;
 
@@ -138,6 +138,7 @@ namespace Player
                     _rigidBody.velocity = new Vector3(_rigidBody.velocity.x, 0f, _rigidBody.velocity.z);
                     _rigidBody.AddForce(new Vector3(0f, Movement.JumpForce, 0f), ForceMode.Impulse);
                     Jumping = true;
+                    PlayJumpSound();
                 }
 
                 if (!Jumping && Mathf.Abs(input.x) < float.Epsilon && Mathf.Abs(input.y) < float.Epsilon &&
@@ -157,13 +158,13 @@ namespace Player
 
             _jump = false;
         }
-        
+
         private float SlopeMultiplier()
         {
-            var angle = Vector3.Angle(_groundContactNormal, Vector3.up);
+            var angle = Vector3.Angle(_groundDetector.GroundContactNormal, Vector3.up);
             return Movement.SlopeCurveModifier.Evaluate(angle);
         }
-        
+
         private void StickToGroundHelper()
         {
             if (!Physics.SphereCast(transform.position, _capsule.radius * (1.0f - Advanced.ShellOffset),
@@ -177,7 +178,7 @@ namespace Player
                 _rigidBody.velocity = Vector3.ProjectOnPlane(_rigidBody.velocity, hitInfo.normal);
             }
         }
-        
+
         private Vector2 GetInput()
         {
             var input = new Vector2
@@ -187,6 +188,44 @@ namespace Player
             };
             Movement.UpdateDesiredTargetSpeed(input);
             return input;
+        }
+
+        private void PlayLandingSound()
+        {
+            _audioSource.clip = LandSound;
+            _audioSource.Play();
+        }
+
+        private void PlayJumpSound()
+        {
+            _audioSource.clip = JumpSound;
+            _audioSource.Play();
+        }
+
+        private void PlayFootStepAudio()
+        {
+            if (!_groundDetector.Grounded)
+            {
+                _lastStep = 0f;
+                return;
+            }
+
+            _lastStep += Time.fixedDeltaTime * (Running ? 1.5f : 1f);
+            if (_lastStep < StepLength)
+            {
+                return;
+            }
+
+            _lastStep -= StepLength;
+
+            // pick & play a random footstep sound from the array,
+            // excluding sound at index 0
+            var n = UnityEngine.Random.Range(1, FootstepSounds.Length);
+            _audioSource.clip = FootstepSounds[n];
+            _audioSource.PlayOneShot(_audioSource.clip);
+            // move picked sound to index 0 so it's not picked next time
+            FootstepSounds[n] = FootstepSounds[0];
+            FootstepSounds[0] = _audioSource.clip;
         }
 
         private void RotateView()
@@ -199,7 +238,7 @@ namespace Player
 
             MouseLook.LookRotation(transform, Camera.transform);
 
-            if (!Grounded && !Advanced.AirControl) return;
+            if (!_groundDetector.Grounded && !Advanced.AirControl) return;
 
             // Rotate the rigidbody velocity to match the new direction that the character is looking
             var velRotation = Quaternion.AngleAxis(transform.eulerAngles.y - oldYRotation, Vector3.up);
@@ -209,26 +248,11 @@ namespace Player
         /// sphere cast down just beyond the bottom of the capsule to see if the capsule is colliding round the bottom
         private void GroundCheck()
         {
-            _previouslyGrounded = Grounded;
+            _previouslyGrounded = _groundDetector.Grounded;
+            if (_previouslyGrounded || !_groundDetector.Grounded || !Jumping) return;
 
-            if (Physics.SphereCast(transform.position, _capsule.radius * (1.0f - Advanced.ShellOffset),
-                Vector3.down, out var hitInfo,
-                _capsule.height / 2f - _capsule.radius + Advanced.GroundCheckDistance, Physics.AllLayers,
-                QueryTriggerInteraction.Ignore))
-            {
-                Grounded = true;
-                _groundContactNormal = hitInfo.normal;
-            }
-            else
-            {
-                Grounded = false;
-                _groundContactNormal = Vector3.up;
-            }
-
-            if (!_previouslyGrounded && Grounded && Jumping)
-            {
-                Jumping = false;
-            }
+            Jumping = false;
+            PlayLandingSound();
         }
     }
 }

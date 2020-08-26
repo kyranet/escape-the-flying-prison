@@ -17,14 +17,14 @@ namespace Utility
         {
             return _offset;
         }
-        
+
         public IEnumerator DoBobCycle()
         {
             // Make the camera move down slightly
             var t = 0f;
             while (t < BobDuration)
             {
-                _offset = Mathf.Lerp(0f, BobAmount, t/BobDuration);
+                _offset = Mathf.Lerp(0f, BobAmount, t / BobDuration);
                 t += Time.deltaTime;
                 yield return new WaitForFixedUpdate();
             }
@@ -33,7 +33,7 @@ namespace Utility
             t = 0f;
             while (t < BobDuration)
             {
-                _offset = Mathf.Lerp(BobAmount, 0f, t/BobDuration);
+                _offset = Mathf.Lerp(BobAmount, 0f, t / BobDuration);
                 t += Time.deltaTime;
                 yield return new WaitForFixedUpdate();
             }
