@@ -23,31 +23,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c6a3e8e-8049-4b5a-a3be-d46603d29012" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Agent.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Agent/AgentManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Agent/AgentManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Agent/AgentMovement.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Shoot.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Shoot.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Shared.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Shared/FallDamage.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Shared/FallDamage.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Shared/Health.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Shared/Health.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/AdvancedSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/AdvancedSettings.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/GroundDetector.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/GroundDetector.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Agent.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Agent.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player/AgentCreator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player/AgentCreator.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Escape The Flying Prison/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Escape The Flying Prison/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Escape The Flying Prison/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Escape The Flying Prison/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Escape The Flying Prison/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Escape The Flying Prison/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/samplescene/NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/samplescene/NavMesh.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/FirstPersonController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/FirstPersonController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Agent/AgentMovement.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/HeadBob.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/HeadBob.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/MouseLook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/MouseLook.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/RigidBodyFirstPersonController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/RigidBodyFirstPersonController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Shoot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Shoot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,13 +50,12 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Agent/AgentMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/MouseLook.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/RigidBodyFirstPersonController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A1CE4CA8-4A94-4D8A-A5E2-3AA6FA322F2E/7a/370e620d/Physics.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2CE23092-8A98-496B-A12C-A183760FB5F6/42/d344b397/Object.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Utility/LerpControlledBob.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Utility/FOVKick.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Utility/CurveControlledBob.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/FirstPersonController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Shared/Health.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Agent/AgentManager.cs" />
@@ -78,10 +63,14 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Utility/AdvancedSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utility/GroundDetector.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/HeadBob.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Shoot.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/RigidBodyFirstPersonController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/MouseLook.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Shared/FallDamage.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/RigidBodyFirstPersonController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utility/CurveControlledBob.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utility/FOVKick.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utility/LerpControlledBob.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Shoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/AgentCreator.cs" />
       </list>
     </option>
   </component>
@@ -139,7 +128,8 @@
       <workItem from="1598454750910" duration="90000" />
       <workItem from="1598455160587" duration="5000" />
       <workItem from="1598455366656" duration="3953000" />
-      <workItem from="1598464285260" duration="2441000" />
+      <workItem from="1598464285260" duration="3488000" />
+      <workItem from="1598518544177" duration="2343000" />
     </task>
     <servers />
   </component>

@@ -12,6 +12,7 @@
             <e p="AgentMovement.cs" t="Include" />
           </e>
           <e p="Player" t="Include">
+            <e p="AgentCreator.cs" t="Include" />
             <e p="HeadBob.cs" t="Include" />
             <e p="MouseLook.cs" t="Include" />
             <e p="RigidBodyFirstPersonController.cs" t="Include" />
