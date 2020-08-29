@@ -10,12 +10,18 @@ namespace Agent
     {
         public Transform Destination;
         private NavMeshAgent _agent;
+        private bool _pendingReTarget = true;
 
         public void Start()
         {
             _agent = GetComponent<NavMeshAgent>();
             if (_agent is null) throw new NullReferenceException("NavMeshAgent must be set.");
 
+            SetDestination();
+        }
+
+        public void OnEnable()
+        {
             SetDestination();
         }
 
@@ -34,8 +40,16 @@ namespace Agent
         {
             if (Destination == null) return;
 
-            var target = Destination.transform.position;
-            _agent.SetDestination(target);
+            if (enabled && _agent.isOnNavMesh)
+            {
+                var target = Destination.transform.position;
+                _agent.SetDestination(target);
+                _pendingReTarget = false;
+            }
+            else
+            {
+                _pendingReTarget = true;
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Player
@@ -7,23 +8,32 @@ namespace Player
     {
         public float Distance = 8f;
         [SerializeField] private Transform Weapon;
-        [SerializeField] private Transform Agents;
-        [SerializeField] private GameObject AgentPrefab;
+        [CanBeNull] private GameObject CapturedAgent;
 
         public void Shoot()
         {
-            var point = GetSpawnPoint();
-            Instantiate(AgentPrefab, point, Quaternion.identity, Agents);
-        }
-
-        private Vector3 GetSpawnPoint()
-        {
             if (Physics.Raycast(transform.position, Weapon.transform.up, out var hit, Distance))
             {
-                return hit.point;
+                if (!(CapturedAgent is null))
+                {
+                    CapturedAgent.transform.position = hit.point;
+                    CapturedAgent.SetActive(true);
+                    CapturedAgent = null;
+                }
+                else if (hit.transform.CompareTag("NPC"))
+                {
+                    CapturedAgent = hit.transform.gameObject;
+                    CapturedAgent.SetActive(false);
+                }
+
+                return;
             }
 
-            return transform.position + Weapon.transform.up * Distance;
+            if (CapturedAgent is null) return;
+
+            CapturedAgent.transform.position = transform.position + Weapon.transform.up * Distance;
+            CapturedAgent.SetActive(true);
+            CapturedAgent = null;
         }
     }
 }

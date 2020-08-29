@@ -26,6 +26,12 @@ namespace Map
             // If this was the last connection, set index to -1 so [[MapController.Current]] returns null.
             if (++ConnectionIndex == Buttons.Length) ConnectionIndex = -1;
 
+            // Retarget
+            ReTarget();
+        }
+
+        private void ReTarget()
+        {
             AgentManager.SetTarget(Current != null ? Current.transform : null);
         }
     }

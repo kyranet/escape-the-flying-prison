@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Utility;
 
 namespace Shared
@@ -22,9 +23,13 @@ namespace Shared
 
         private void Start()
         {
+            _gd = GetComponent<GroundDetector>();
+        }
+
+        private void OnEnable()
+        {
             _distanceY = 0f;
             _positionY = transform.position.y;
-            _gd = GetComponent<GroundDetector>();
         }
 
         private void FixedUpdate()

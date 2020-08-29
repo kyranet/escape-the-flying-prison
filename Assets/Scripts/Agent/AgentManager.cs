@@ -2,23 +2,19 @@
 using System.Linq;
 using JetBrains.Annotations;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Agent
 {
     public class AgentManager : MonoBehaviour
     {
-        [SerializeField] private List<AgentMovement> Agents = new List<AgentMovement>();
+        [SerializeField] private List<AgentMovement> Agents;
         [CanBeNull] public AgentMovement Leader;
 
         public void Awake()
         {
             Agents = GetComponentsInChildren<AgentMovement>().ToList();
             PickLeader();
-        }
-
-        public void AddAgent(AgentMovement agent)
-        {
-            Agents.Add(agent);
         }
 
         public void RemoveAgent(AgentMovement agent)
