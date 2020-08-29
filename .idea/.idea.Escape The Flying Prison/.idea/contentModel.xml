@@ -11,6 +11,10 @@
             <e p="AgentManager.cs" t="Include" />
             <e p="AgentMovement.cs" t="Include" />
           </e>
+          <e p="Map" t="Include">
+            <e p="ButtonController.cs" t="Include" />
+            <e p="MapController.cs" t="Include" />
+          </e>
           <e p="Player" t="Include">
             <e p="AgentCreator.cs" t="Include" />
             <e p="HeadBob.cs" t="Include" />

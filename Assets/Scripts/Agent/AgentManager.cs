@@ -27,6 +27,14 @@ namespace Agent
             if (agent == Leader) PickLeader();
         }
 
+        public void SetTarget([CanBeNull] Transform destination)
+        {
+            foreach (var agent in Agents)
+            {
+                agent.SetDestination(destination);
+            }
+        }
+
         private void PickLeader()
         {
             if (Agents.Count == 0)
