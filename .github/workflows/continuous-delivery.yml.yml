@@ -25,12 +25,6 @@ jobs:
           path: Assets
           key: ${{ runner.os }}-unity-assets
 
-      # Test
-      - name: Run tests
-        uses: webbertakken/unity-test-runner@v1.3
-        with:
-          unityVersion: 2019.2.1f1
-
       # Build
       - name: Build project
         uses: webbertakken/unity-builder@v0.10
