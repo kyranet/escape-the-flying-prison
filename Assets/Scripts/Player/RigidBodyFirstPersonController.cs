@@ -30,20 +30,20 @@ namespace Player
                 if (input == Vector2.zero) return;
                 if (input.x > 0 || input.x < 0)
                 {
-                    //strafe
+                    // Strafe
                     CurrentTargetSpeed = StrafeSpeed;
                 }
 
                 if (input.y < 0)
                 {
-                    //backwards
+                    // Backwards
                     CurrentTargetSpeed = BackwardSpeed;
                 }
 
                 if (input.y > 0)
                 {
-                    //forwards
-                    //handled last as if strafing and moving forward at the same time forwards speed should take precedence
+                    // Forwards
+                    // Handled last as if strafing and moving forward at the same time forwards speed should take precedence
                     CurrentTargetSpeed = ForwardSpeed;
                 }
 

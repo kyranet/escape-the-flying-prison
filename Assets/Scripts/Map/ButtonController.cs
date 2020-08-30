@@ -23,10 +23,12 @@ namespace Map
             Connection.SetActive(false);
         }
 
-        private void OnCollisionEnter()
+        private void OnTriggerEnter(Collider other)
         {
             if (Active) return;
             var current = Controller.Current;
+
+            Debug.Log(current);
 
             // If there was no bridge enabled or no bridge left, skip.
             if (current == null) return;

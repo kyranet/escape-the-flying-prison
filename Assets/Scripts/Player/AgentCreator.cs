@@ -1,5 +1,4 @@
-﻿using System;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Player
@@ -7,19 +6,17 @@ namespace Player
     public class AgentCreator : MonoBehaviour
     {
         public float Distance = 8f;
-        [SerializeField] private Camera Camera;
+        [SerializeField] private Transform Weapon;
         [CanBeNull] private GameObject CapturedAgent;
 
         public void Shoot()
         {
-            var ray = Camera.ScreenPointToRay(Input.mousePosition);
+            var ray = new Ray(Weapon.position, Weapon.up);
             if (Physics.Raycast(ray, out var hit, Distance))
             {
                 if (!(CapturedAgent is null))
                 {
-                    CapturedAgent.transform.position = hit.point;
-                    CapturedAgent.SetActive(true);
-                    CapturedAgent = null;
+                    SpawnAgent(hit.point);
                 }
                 else if (hit.transform.CompareTag("NPC"))
                 {
@@ -32,7 +29,14 @@ namespace Player
 
             if (CapturedAgent is null) return;
 
-            CapturedAgent.transform.position = transform.position + ray.direction * Distance;
+            SpawnAgent(ray.GetPoint(Distance));
+        }
+
+        private void SpawnAgent(Vector3 point)
+        {
+            System.Diagnostics.Debug.Assert(CapturedAgent != null, nameof(CapturedAgent) + " != null");
+
+            CapturedAgent.transform.position = point;
             CapturedAgent.SetActive(true);
             CapturedAgent = null;
         }
