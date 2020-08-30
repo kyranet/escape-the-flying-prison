@@ -7,12 +7,13 @@ namespace Player
     public class AgentCreator : MonoBehaviour
     {
         public float Distance = 8f;
-        [SerializeField] private Transform Weapon;
+        [SerializeField] private Camera Camera;
         [CanBeNull] private GameObject CapturedAgent;
 
         public void Shoot()
         {
-            if (Physics.Raycast(transform.position, Weapon.transform.up, out var hit, Distance))
+            var ray = Camera.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out var hit, Distance))
             {
                 if (!(CapturedAgent is null))
                 {
@@ -31,7 +32,7 @@ namespace Player
 
             if (CapturedAgent is null) return;
 
-            CapturedAgent.transform.position = transform.position + Weapon.transform.up * Distance;
+            CapturedAgent.transform.position = transform.position + ray.direction * Distance;
             CapturedAgent.SetActive(true);
             CapturedAgent = null;
         }

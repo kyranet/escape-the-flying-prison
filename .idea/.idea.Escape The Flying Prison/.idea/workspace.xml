@@ -23,39 +23,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c6a3e8e-8049-4b5a-a3be-d46603d29012" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/Agent.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/Agent.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/Block.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/Block.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/ProBuilderDefault.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/ProBuilderDefault.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Shaders/Agent.shadergraph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Shaders/Agent.shadergraph.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Shaders/Block.shadergraph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Shaders/Block.shadergraph.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/GridBox_Default.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/GridBox_Default.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Escape The Flying Prison/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Escape The Flying Prison/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Agent.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Agent.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProBuilder Data/Default Material Palette.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ProBuilder Data/Default Material Palette.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Crosshair.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Crosshair.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Crosshair.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Crosshair.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.progrids/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Escape The Flying Prison/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Escape The Flying Prison/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/samplescene/LightingData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/samplescene/LightingData.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/samplescene/Lightmap-0_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/samplescene/Lightmap-0_comp_dir.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/samplescene/Lightmap-0_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/samplescene/Lightmap-0_comp_light.exr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/samplescene/NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/samplescene/NavMesh.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/samplescene/ReflectionProbe-0.exr" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/samplescene/ReflectionProbe-0.exr.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/samplescene/ReflectionProbe-1.exr" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/samplescene/ReflectionProbe-1.exr.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/samplescene/ReflectionProbe-2.exr" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/samplescene/ReflectionProbe-2.exr.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Agent/AgentManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Agent/AgentManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Agent/AgentMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Agent/AgentMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/MapController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/MapController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/AgentCreator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/AgentCreator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Shared/FallDamage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Shared/FallDamage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,11 +70,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Shoot.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Map/Map.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Map/ButtonController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/AgentCreator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Map/MapController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Agent/AgentManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Agent/AgentMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Shared/FallDamage.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/AgentCreator.cs" />
       </list>
     </option>
   </component>
@@ -159,6 +138,7 @@
       <workItem from="1598613243589" duration="2321000" />
       <workItem from="1598696358063" duration="3959000" />
       <workItem from="1598717650256" duration="3844000" />
+      <workItem from="1598782926092" duration="377000" />
     </task>
     <servers />
   </component>
