@@ -1,54 +1,51 @@
-﻿using System;
+﻿using System.Collections;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
-using UnityEngine.AI;
 
 namespace Agent
 {
-    [RequireComponent(typeof(NavMeshAgent))]
     public class AgentMovement : MonoBehaviour
     {
-        public Transform Destination;
-        private NavMeshAgent _agent;
-        private bool _pendingReTarget = true;
+        public float Speed = 3f;
+        private AgentManager AgentManager;
+        private Stack<Vector3> Steps;
+        [CanBeNull] private Coroutine Coroutine;
 
-        public void Start()
+        public void Awake()
         {
-            _agent = GetComponent<NavMeshAgent>();
-            if (_agent is null) throw new NullReferenceException("NavMeshAgent must be set.");
-
-            SetDestination();
-        }
-
-        public void OnEnable()
-        {
-            SetDestination();
+            AgentManager = GetComponentInParent<AgentManager>();
         }
 
         public void OnDestroy()
         {
-            GetComponentInParent<AgentManager>()?.RemoveAgent(this);
+            AgentManager.RemoveAgent(this);
         }
 
-        public void SetDestination([CanBeNull] Transform destination)
+        public void SetDestination([CanBeNull] Transform position)
         {
-            Destination = destination;
-            SetDestination();
+            if (position is null) Steps.Clear();
+            else Steps = AgentManager.Map.GetRoute(transform.position, position.position);
+
+            if (!(Coroutine is null)) StopCoroutine(Coroutine);
+            Coroutine = StartCoroutine(nameof(MoveTowards));
         }
 
-        private void SetDestination()
+        private IEnumerator MoveTowards()
         {
-            if (Destination == null) return;
+            while (Steps.Count > 0)
+            {
+                var movement = Speed * Time.deltaTime;
+                var difference = Steps.Peek() - transform.position;
+                if (difference.sqrMagnitude < 0.1f)
+                {
+                    Steps.Pop();
+                    continue;
+                }
 
-            if (enabled && _agent.isOnNavMesh)
-            {
-                var target = Destination.transform.position;
-                _agent.SetDestination(target);
-                _pendingReTarget = false;
-            }
-            else
-            {
-                _pendingReTarget = true;
+                var vectorMovement = difference.normalized * movement;
+                transform.Translate(vectorMovement, Space.Self);
+                yield return new WaitForFixedUpdate();
             }
         }
     }

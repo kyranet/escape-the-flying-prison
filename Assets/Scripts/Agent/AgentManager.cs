@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using AI;
 using JetBrains.Annotations;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -8,6 +9,7 @@ namespace Agent
 {
     public class AgentManager : MonoBehaviour
     {
+        public NavGenerator Map;
         [SerializeField] private List<AgentMovement> Agents;
         [CanBeNull] public AgentMovement Leader;
 

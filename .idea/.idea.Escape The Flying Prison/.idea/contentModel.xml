@@ -54,6 +54,15 @@
             <e p="ProjectVersion.txt" t="Include" />
           </e>
         </e>
+        <e p="Samples" t="Include">
+          <e p="Terrain Tools" t="Include">
+            <e p="0.1.0-preview" t="Include">
+              <e p="Terrain Assets" t="Include">
+                <e p="ThirdPartyNotices.txt" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
         <e p="Scripts" t="Include">
           <e p="Agent" t="Include">
             <e p="AgentManager.cs" t="Include" />
