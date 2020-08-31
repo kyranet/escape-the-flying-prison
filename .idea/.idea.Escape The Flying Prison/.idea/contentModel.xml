@@ -67,6 +67,7 @@
           <e p="Map" t="Include">
             <e p="BridgeBuild.cs" t="Include" />
             <e p="ButtonController.cs" t="Include" />
+            <e p="DeathFloor.cs" t="Include" />
             <e p="MapController.cs" t="Include" />
           </e>
           <e p="Player" t="Include">

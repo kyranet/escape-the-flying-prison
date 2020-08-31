@@ -14,7 +14,7 @@ namespace AI
         private void Awake()
         {
             Scan();
-            // GetRoute(new Vector3(17, 2, 0), new Vector3(30, -7, -28));
+            DrawRays();
         }
 
         public void Scan()
@@ -81,7 +81,7 @@ namespace AI
 
             if (!shortestPlatform.HasValue) return false;
 
-            if (stack.Count != 1) stack.Push(shortestPlatform.Value.OutPosition);
+            stack.Push(shortestPlatform.Value.OutPosition);
             stack.Push(shortestPlatform.Value.InPosition);
             distance = shortestPlatform.Value.Distance;
             return true;
@@ -97,6 +97,20 @@ namespace AI
             foreach (var joint in platform.Connections.Where(joint => !Platforms.Contains(joint.Platform)))
             {
                 ScanPlatform(joint.Platform);
+            }
+        }
+
+        private void DrawRays()
+        {
+            var start = new Vector3(17, 2, 0);
+            var route = GetRoute(start, new Vector3(30, -7, -28));
+            if (route.Count == 0) return;
+
+            while (route.Count > 0)
+            {
+                var next = route.Pop();
+                Debug.DrawLine(start, next, Color.yellow, 30f);
+                start = next;
             }
         }
     }
