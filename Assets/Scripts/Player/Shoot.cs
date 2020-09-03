@@ -1,33 +1,39 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Player
 {
-    [RequireComponent(typeof(AgentCreator))]
-    public class Shoot : MonoBehaviour
-    {
-        public GameObject Laser;
-        public MonoBehaviour Controller;
-        private AgentCreator _ac;
+	[RequireComponent(typeof(AgentCreator))]
+	public class Shoot : MonoBehaviour
+	{
+		public GameObject Laser;
+		public MonoBehaviour Controller;
+		private AgentCreator _ac;
 
-        private void Awake()
-        {
-            _ac = GetComponent<AgentCreator>();
-        }
+		public InputAction FireAction;
 
-        private void Update()
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                Laser.SetActive(true);
-                Controller.enabled = false;
-                _ac.Shoot();
-            }
-            else if (Input.GetMouseButtonUp(0))
-            {
-                Laser.SetActive(false);
-                Controller.enabled = true;
-            }
-        }
-    }
+		private void Awake()
+		{
+			_ac = GetComponent<AgentCreator>();
+
+			FireAction.Enable();
+
+			FireAction.started += FireEnable;
+			FireAction.canceled += FireDisable;
+		}
+
+		private void FireEnable(InputAction.CallbackContext _)
+		{
+			Laser.SetActive(true);
+			Controller.enabled = false;
+			_ac.Shoot();
+		}
+
+		private void FireDisable(InputAction.CallbackContext _)
+		{
+			Laser.SetActive(false);
+			Controller.enabled = true;
+		}
+	}
 }

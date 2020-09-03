@@ -1,111 +1,125 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Player
 {
-    [Serializable]
-    public class MouseLook
-    {
-        public float XSensitivity = 2f;
-        public float YSensitivity = 2f;
-        public bool ClampVerticalRotation = true;
-        public float MinimumX = -90F;
-        public float MaximumX = 90F;
-        public bool Smooth;
-        public float SmoothTime = 5f;
-        public bool LockCursor = true;
+	[Serializable]
+	public class MouseLook
+	{
+		public float XSensitivity = 2f;
+		public float YSensitivity = 2f;
+		public bool ClampVerticalRotation = true;
+		public float MinimumX = -90F;
+		public float MaximumX = 90F;
+		public bool Smooth;
+		public float SmoothTime = 5f;
+		public bool LockCursor = true;
 
-        private Quaternion _characterTargetRot;
-        private Quaternion _cameraTargetRot;
-        private bool _cursorIsLocked = true;
+		public InputAction AxisAction;
+		private Vector2 _axis;
 
-        public void Init(Transform character, Transform camera)
-        {
-            _characterTargetRot = character.localRotation;
-            _cameraTargetRot = camera.localRotation;
-        }
+		private Quaternion _characterTargetRot;
+		private Quaternion _cameraTargetRot;
+		private bool _cursorIsLocked = true;
 
-        public void LookRotation(Transform character, Transform camera)
-        {
-            var yRot = Input.GetAxis("Mouse X") * XSensitivity;
-            var xRot = Input.GetAxis("Mouse Y") * YSensitivity;
+		public void Init(Transform character, Transform camera)
+		{
+			_characterTargetRot = character.localRotation;
+			_cameraTargetRot = camera.localRotation;
+			AxisAction.Enable();
 
-            _characterTargetRot *= Quaternion.Euler(0f, yRot, 0f);
-            _cameraTargetRot *= Quaternion.Euler(-xRot, 0f, 0f);
+			AxisAction.started += HandleAxis;
+			AxisAction.performed += HandleAxis;
+			AxisAction.canceled += HandleAxis;
+		}
 
-            if (ClampVerticalRotation)
-                _cameraTargetRot = ClampRotationAroundXAxis(_cameraTargetRot);
+		private void HandleAxis(InputAction.CallbackContext ctx)
+		{
+			_axis = ctx.ReadValue<Vector2>();
+		}
 
-            if (Smooth)
-            {
-                character.localRotation = Quaternion.Slerp(character.localRotation, _characterTargetRot,
-                    SmoothTime * Time.deltaTime);
-                camera.localRotation = Quaternion.Slerp(camera.localRotation, _cameraTargetRot,
-                    SmoothTime * Time.deltaTime);
-            }
-            else
-            {
-                character.localRotation = _characterTargetRot;
-                camera.localRotation = _cameraTargetRot;
-            }
+		public void LookRotation(Transform character, Transform camera)
+		{
+			var yRot = _axis.x * XSensitivity;
+			var xRot = _axis.y * YSensitivity;
 
-            UpdateCursorLock();
-        }
+			_characterTargetRot *= Quaternion.Euler(0f, yRot, 0f);
+			_cameraTargetRot *= Quaternion.Euler(-xRot, 0f, 0f);
 
-        public void SetCursorLock(bool value)
-        {
-            LockCursor = value;
-            if (LockCursor) return;
+			if (ClampVerticalRotation)
+				_cameraTargetRot = ClampRotationAroundXAxis(_cameraTargetRot);
 
-            // Force unlock the cursor if the user disable the cursor locking helper
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
+			if (Smooth)
+			{
+				character.localRotation = Quaternion.Slerp(character.localRotation, _characterTargetRot,
+					SmoothTime * Time.deltaTime);
+				camera.localRotation = Quaternion.Slerp(camera.localRotation, _cameraTargetRot,
+					SmoothTime * Time.deltaTime);
+			}
+			else
+			{
+				character.localRotation = _characterTargetRot;
+				camera.localRotation = _cameraTargetRot;
+			}
 
-        public void UpdateCursorLock()
-        {
-            // If the user set "lockCursor" we check & properly lock the cursor
-            if (LockCursor)
-                InternalLockUpdate();
-        }
+			UpdateCursorLock();
+		}
 
-        private void InternalLockUpdate()
-        {
-            if (Input.GetKeyUp(KeyCode.Escape))
-            {
-                _cursorIsLocked = false;
-            }
-            else if (Input.GetMouseButtonUp(0))
-            {
-                _cursorIsLocked = true;
-            }
+		public void SetCursorLock(bool value)
+		{
+			LockCursor = value;
+			if (LockCursor) return;
 
-            if (_cursorIsLocked)
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-            }
-            else if (!_cursorIsLocked)
-            {
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-            }
-        }
+			// Force unlock the cursor if the user disable the cursor locking helper
+			Cursor.lockState = CursorLockMode.None;
+			Cursor.visible = true;
+		}
 
-        private Quaternion ClampRotationAroundXAxis(Quaternion q)
-        {
-            q.x /= q.w;
-            q.y /= q.w;
-            q.z /= q.w;
-            q.w = 1.0f;
+		public void UpdateCursorLock()
+		{
+			// If the user set "lockCursor" we check & properly lock the cursor
+			if (LockCursor)
+				InternalLockUpdate();
+		}
 
-            var angleX = 2.0f * Mathf.Rad2Deg * Mathf.Atan(q.x);
+		private void InternalLockUpdate()
+		{
+			if (Input.GetKeyUp(KeyCode.Escape))
+			{
+				_cursorIsLocked = false;
+			}
+			else if (Input.GetMouseButtonUp(0))
+			{
+				_cursorIsLocked = true;
+			}
 
-            angleX = Mathf.Clamp(angleX, MinimumX, MaximumX);
+			if (_cursorIsLocked)
+			{
+				Cursor.lockState = CursorLockMode.Locked;
+				Cursor.visible = false;
+			}
+			else if (!_cursorIsLocked)
+			{
+				Cursor.lockState = CursorLockMode.None;
+				Cursor.visible = true;
+			}
+		}
 
-            q.x = Mathf.Tan(0.5f * Mathf.Deg2Rad * angleX);
+		private Quaternion ClampRotationAroundXAxis(Quaternion q)
+		{
+			q.x /= q.w;
+			q.y /= q.w;
+			q.z /= q.w;
+			q.w = 1.0f;
 
-            return q;
-        }
-    }
+			var angleX = 2.0f * Mathf.Rad2Deg * Mathf.Atan(q.x);
+
+			angleX = Mathf.Clamp(angleX, MinimumX, MaximumX);
+
+			q.x = Mathf.Tan(0.5f * Mathf.Deg2Rad * angleX);
+
+			return q;
+		}
+	}
 }
