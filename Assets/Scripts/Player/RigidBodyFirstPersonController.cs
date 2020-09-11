@@ -209,17 +209,6 @@ namespace Player
 			}
 		}
 
-		private Vector2 GetInput()
-		{
-			var input = new Vector2
-			{
-				x = Input.GetAxis("Horizontal"),
-				y = Input.GetAxis("Vertical")
-			};
-			Movement.UpdateDesiredTargetSpeed(input);
-			return input;
-		}
-
 		private void PlayLandingSound()
 		{
 			_audioSource.clip = LandSound;
@@ -273,16 +262,6 @@ namespace Player
 			// Rotate the rigidbody velocity to match the new direction that the character is looking
 			var velRotation = Quaternion.AngleAxis(transform.eulerAngles.y - oldYRotation, Vector3.up);
 			_rigidBody.velocity = velRotation * _rigidBody.velocity;
-		}
-
-		/// sphere cast down just beyond the bottom of the capsule to see if the capsule is colliding round the bottom
-		private void GroundCheck()
-		{
-			_previouslyGrounded = _groundDetector.Grounded;
-			if (_previouslyGrounded || !_groundDetector.Grounded || !Jumping) return;
-
-			Jumping = false;
-			PlayLandingSound();
 		}
 	}
 }
