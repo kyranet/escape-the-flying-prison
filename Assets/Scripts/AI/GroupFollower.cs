@@ -36,7 +36,7 @@ namespace AI
 		{
 			yield return new WaitForFixedUpdate();
 
-			while (enabled)
+			while (true)
 			{
 				if (FollowLeader(out var leaderDistance))
 				{

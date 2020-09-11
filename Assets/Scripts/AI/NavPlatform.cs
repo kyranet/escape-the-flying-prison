@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace AI
@@ -35,6 +34,16 @@ namespace AI
 			public Vector3 OutPosition;
 
 			/// <summary>
+			/// The bridge.
+			/// </summary>
+			public GameObject Bridge { private get; set; }
+
+			/// <summary>
+			/// Whether the joint is enabled.
+			/// </summary>
+			public bool Enabled => Bridge.activeSelf;
+
+			/// <summary>
 			/// The calculated distance from {InPosition} and {OutPosition}
 			/// </summary>
 			public float Distance => (InPosition - OutPosition).magnitude;
@@ -57,8 +66,20 @@ namespace AI
 				return this;
 			}
 
+			public IEnumerable<INavContainer> Siblings()
+			{
+				yield return OriginPlatform;
+				yield return TargetPlatform;
+			}
+
 			public NavPlatform Platform => TargetPlatform;
-			public Vector3? Exit => OutPosition;
+
+			public Vector3? Closest(Vector3 position)
+			{
+				return (OutPosition - position).magnitude > (InPosition - position).magnitude
+					? InPosition
+					: OutPosition;
+			}
 		}
 
 		public List<NavPlatformJoint> Connections;
@@ -75,8 +96,18 @@ namespace AI
 				.FirstOrDefault(instance => !(instance is null));
 		}
 
+		public IEnumerable<INavContainer> Siblings()
+		{
+			return Connections.Where(joint => joint.Enabled);
+		}
+
 		public NavPlatform Platform => this;
-		public Vector3? Exit => null;
+
+		public Vector3? Closest(Vector3 position)
+		{
+			return null;
+		}
+
 
 		public void Refresh()
 		{
@@ -90,7 +121,8 @@ namespace AI
 						OriginPlatform = joint.A.Platform,
 						TargetPlatform = joint.B.Platform,
 						InPosition = joint.A.Position + joint.A.Platform.Position,
-						OutPosition = joint.B.Position + joint.B.Platform.Position
+						OutPosition = joint.B.Position + joint.B.Platform.Position,
+						Bridge = joint.Bridge
 					});
 				}
 				else
@@ -100,7 +132,8 @@ namespace AI
 						OriginPlatform = joint.B.Platform,
 						TargetPlatform = joint.A.Platform,
 						InPosition = joint.B.Position + joint.B.Platform.Position,
-						OutPosition = joint.A.Position + joint.A.Platform.Position
+						OutPosition = joint.A.Position + joint.A.Platform.Position,
+						Bridge = joint.Bridge
 					});
 				}
 			}

@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace AI
@@ -8,7 +9,9 @@ namespace AI
 		[CanBeNull]
 		INavContainer Contains(Vector3 position);
 
+		IEnumerable<INavContainer> Siblings();
+
 		NavPlatform Platform { get; }
-		Vector3? Exit { get; }
+		Vector3? Closest(Vector3 position);
 	}
 }

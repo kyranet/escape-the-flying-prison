@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using UnityEngine;
 using Joint = AI.NavPlatform.NavPlatformJoint;
+using Platform = AI.NavPlatform;
 
 namespace AI
 {
@@ -48,33 +48,34 @@ namespace AI
 			stack.Push(b);
 
 			// Return empty stack:
-			if (pa != pb && !GetPossibleRoute(pa.Platform, new List<NavPlatform>(), pb.Platform, ref stack, out _))
+			if (pa != pb && !GetPossibleRoute(pa, new List<INavContainer>(), pb, ref stack, out _))
 				return new Stack<Vector3>();
 
-			if (pa.Exit.HasValue) stack.Push(pa.Exit.Value);
+			var closes = pa.Closest(stack.Peek());
+			if (closes.HasValue) stack.Push(closes.Value);
 			return stack;
 		}
 
-		private bool GetPossibleRoute(NavPlatform platform, ICollection<NavPlatform> scanned, NavPlatform target,
+		private bool GetPossibleRoute(INavContainer platform, ICollection<INavContainer> scanned, INavContainer target,
 			ref Stack<Vector3> stack, out float distance)
 		{
 			// Add the entry to the scan to avoid cyclic scans:
 			scanned.Add(platform);
 
 			distance = float.MaxValue;
-			Joint shortestPlatform = null;
+			INavContainer shortestPlatform = null;
 
-			foreach (var joint in platform.Connections.Where(joint => !scanned.Contains(joint.TargetPlatform)))
+			foreach (var joint in platform.Siblings().Where(joint => !scanned.Contains(joint)))
 			{
 				// Check whether the platform we are scanning is the target:
-				if (joint.TargetPlatform == target)
+				if (joint == target)
 				{
 					shortestPlatform = joint;
 					break;
 				}
 
 				// If no route was found, skip:
-				if (!GetPossibleRoute(joint.TargetPlatform, scanned, target, ref stack, out var possibleDistance))
+				if (!GetPossibleRoute(joint, scanned, target, ref stack, out var possibleDistance))
 					continue;
 
 				// If the route was longer than the previous, skip:
@@ -85,11 +86,21 @@ namespace AI
 				shortestPlatform = joint;
 			}
 
-			if (shortestPlatform is null) return false;
+			switch (shortestPlatform)
+			{
+				case null:
+					return false;
+				case Joint casted:
+					stack.Push(casted.OutPosition);
+					stack.Push(casted.InPosition);
+					distance = casted.Distance;
+					break;
+				case NavPlatform casted:
+					distance = (stack.Peek() - casted.Center).magnitude;
+					stack.Push(casted.Center);
+					break;
+			}
 
-			stack.Push(shortestPlatform.OutPosition);
-			stack.Push(shortestPlatform.InPosition);
-			distance = shortestPlatform.Distance;
 			return true;
 		}
 
