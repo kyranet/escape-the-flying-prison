@@ -5,48 +5,61 @@ using UnityEngine;
 
 namespace Agent
 {
-    public class AgentMovement : MonoBehaviour
-    {
-        public float Speed = 3f;
-        private AgentManager AgentManager;
-        private Stack<Vector3> Steps;
-        [CanBeNull] private Coroutine Coroutine;
+	public class AgentMovement : MonoBehaviour
+	{
+		public float Speed = 3f;
+		public AgentManager AgentManager;
+		private Stack<Vector3> Steps;
 
-        public void Awake()
-        {
-            AgentManager = GetComponentInParent<AgentManager>();
-        }
+		[CanBeNull]
+		private Coroutine Coroutine;
 
-        public void OnDestroy()
-        {
-            AgentManager.RemoveAgent(this);
-        }
+		private void Awake()
+		{
+			AgentManager = GetComponentInParent<AgentManager>();
+		}
 
-        public void SetDestination([CanBeNull] Transform position)
-        {
-            if (position is null) Steps.Clear();
-            else Steps = AgentManager.Map.GetRoute(transform.position, position.position);
+		public void OnDestroy()
+		{
+			AgentManager.RemoveAgent(this);
+		}
 
-            if (!(Coroutine is null)) StopCoroutine(Coroutine);
-            Coroutine = StartCoroutine(nameof(MoveTowards));
-        }
+		public void SetRoute([CanBeNull] Stack<Vector3> steps)
+		{
+			if (!(Coroutine is null))
+			{
+				StopCoroutine(Coroutine);
+				Coroutine = null;
+			}
 
-        private IEnumerator MoveTowards()
-        {
-            while (Steps.Count > 0)
-            {
-                var movement = Speed * Time.deltaTime;
-                var difference = Steps.Peek() - transform.position;
-                if (difference.sqrMagnitude < 0.1f)
-                {
-                    Steps.Pop();
-                    continue;
-                }
+			if (steps is null)
+			{
+				Steps = new Stack<Vector3>();
+			}
+			else
+			{
+				Steps = steps;
+				Coroutine = StartCoroutine(nameof(MoveTowards));
+			}
+		}
 
-                var vectorMovement = difference.normalized * movement;
-                transform.Translate(vectorMovement, Space.Self);
-                yield return new WaitForFixedUpdate();
-            }
-        }
-    }
+		private IEnumerator MoveTowards()
+		{
+			while (Steps.Count > 0)
+			{
+				var movement = Speed * Time.deltaTime;
+				var difference = Steps.Peek() - transform.position;
+				Debug.DrawLine(transform.position, transform.position + difference, Color.magenta, 5f);
+				if (difference.sqrMagnitude < 0.1f)
+				{
+					Steps.Pop();
+					continue;
+				}
+
+				var vectorMovement = difference.normalized * movement;
+				transform.Translate(vectorMovement, Space.Self);
+				yield return new WaitForFixedUpdate();
+			}
+		}
+	}
 }

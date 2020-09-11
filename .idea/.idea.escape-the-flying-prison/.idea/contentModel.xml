@@ -22,6 +22,9 @@
             <e p="AgentMovement.cs" t="Include" />
           </e>
           <e p="AI" t="Include">
+            <e p="GroupFollower.cs" t="Include" />
+            <e p="GroupLeader.cs" t="Include" />
+            <e p="NavContainer.cs" t="Include" />
             <e p="NavGenerator.cs" t="Include" />
             <e p="NavJoint.cs" t="Include" />
             <e p="NavPlatform.cs" t="Include" />

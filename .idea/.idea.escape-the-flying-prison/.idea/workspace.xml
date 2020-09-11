@@ -20,204 +20,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c1ea4bf-641d-44bb-b511-8bcb2bb7999c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Hat Strip.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Hat Strip.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Hat.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Hat.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Stressed Agent.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Stressed Agent.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Laser.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Laser.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/AI/GroupFollower.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/AI/GroupFollower.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/AI/GroupLeader.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/AI/GroupLeader.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/AI/NavContainer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/AI/NavContainer.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.escape-the-flying-prison/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.escape-the-flying-prison/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.escape-the-flying-prison/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.escape-the-flying-prison/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Cube.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Cube.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Editor/NavMeshComponentsExamplesEditor.asmdef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Editor/NavMeshComponentsExamplesEditor.asmdef.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Editor/NavMeshPrefabInstanceEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Editor/NavMeshPrefabInstanceEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Materials/brightgreen.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Materials/brightgreen.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Materials/brown.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Materials/brown.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Materials/crosshair.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Materials/crosshair.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Materials/floor.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Materials/floor.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Materials/green.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Materials/green.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Materials/grey.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Materials/grey.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Materials/modify_crosshair.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Materials/modify_crosshair.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Materials/red.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Materials/red.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Materials/yellow.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Materials/yellow.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/NavMeshComponentsExamples.asmdef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/NavMeshComponentsExamples.asmdef.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/BanyanTree.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/BanyanTree.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/BanyanTree.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/BanyanTree.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile0.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile0.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile10.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile10.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile11.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile11.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile12.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile12.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile13.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile13.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile14.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile14.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile15.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile15.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile2.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile2.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile3.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile3.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile4.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile4.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile5.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile5.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile6.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile6.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile7.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile7.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile8.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile8.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile9.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/DungeonTiles/Tile9.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/GroundTile.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/GroundTile.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/Materials/BanyanBark.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/Materials/BanyanBark.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/Materials/BanyanBranches.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/Materials/BanyanBranches.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/Plank.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Prefabs/Plank.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scenes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scenes/1_multiple_agent_sizes.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scenes/1_multiple_agent_sizes.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scripts/AgentLinkMover.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scripts/AgentLinkMover.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scripts/ClickToMove.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scripts/ClickToMove.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scripts/DestroyOnTrigger.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scripts/DestroyOnTrigger.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scripts/DungeonManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scripts/DungeonManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scripts/EnableIffSleeping.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scripts/EnableIffSleeping.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scripts/FreeCam.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scripts/FreeCam.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scripts/LocalNavMeshBuilder.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scripts/LocalNavMeshBuilder.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scripts/MeshTool.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scripts/MeshTool.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scripts/NavMeshPrefabInstance.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scripts/NavMeshPrefabInstance.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scripts/NavMeshSourceTag.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scripts/NavMeshSourceTag.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scripts/Oscillator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scripts/Oscillator.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scripts/RandomInstancing.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scripts/RandomInstancing.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scripts/RandomWalk.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scripts/RandomWalk.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scripts/SpawnPrefabOnKeyDown.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Examples/Scripts/SpawnPrefabOnKeyDown.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Gizmos.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Gizmos/NavMeshLink Icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Gizmos/NavMeshLink Icon.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Gizmos/NavMeshModifierVolume Icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Gizmos/NavMeshModifierVolume Icon.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Gizmos/NavMeshSurface Icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/Gizmos/NavMeshSurface Icon.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/NavMeshComponents.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/NavMeshComponents/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/NavMeshComponents/Editor/NavMeshAssetManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/NavMeshComponents/Editor/NavMeshAssetManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/NavMeshComponents/Editor/NavMeshComponentsEditor.asmdef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/NavMeshComponents/Editor/NavMeshComponentsEditor.asmdef.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/NavMeshComponents/Editor/NavMeshComponentsGUIUtility.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/NavMeshComponents/Editor/NavMeshComponentsGUIUtility.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/NavMeshComponents/Editor/NavMeshLinkEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/NavMeshComponents/Editor/NavMeshLinkEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/NavMeshComponents/Editor/NavMeshModifierEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/NavMeshComponents/Editor/NavMeshModifierEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/NavMeshComponents/Editor/NavMeshModifierVolumeEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/NavMeshComponents/Editor/NavMeshModifierVolumeEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/NavMeshComponents/Editor/NavMeshSurfaceEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/NavMeshComponents/Editor/NavMeshSurfaceEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/NavMeshComponents/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/NavMeshComponents/Scripts/NavMeshComponents.asmdef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/NavMeshComponents/Scripts/NavMeshComponents.asmdef.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/NavMeshComponents/Scripts/NavMeshLink.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/NavMeshComponents/Scripts/NavMeshLink.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/NavMeshComponents/Scripts/NavMeshModifier.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/NavMeshComponents/Scripts/NavMeshModifier.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/NavMeshComponents/Scripts/NavMeshModifierVolume.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/NavMeshComponents/Scripts/NavMeshModifierVolume.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/NavMeshComponents/Scripts/NavMeshSurface.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Assets/NavMeshComponents/Scripts/NavMeshSurface.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/LICENSE.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Packages.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Packages/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/Packages/manifest.json.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/AudioManager.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/AudioManager.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/ClusterInputManager.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/ClusterInputManager.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/DynamicsManager.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/DynamicsManager.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/EditorBuildSettings.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/EditorSettings.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/EditorSettings.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/GraphicsSettings.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/GraphicsSettings.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/InputManager.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/InputManager.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/NavMeshAreas.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/NavMeshAreas.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/NetworkManager.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/NetworkManager.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/Physics2DSettings.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/Physics2DSettings.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/PresetManager.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/PresetManager.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/ProjectSettings.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/ProjectSettings.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/ProjectVersion.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/ProjectVersion.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/QualitySettings.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/QualitySettings.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/TagManager.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/TagManager.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/TimeManager.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/TimeManager.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/UnityConnectSettings.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/VFXManager.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/ProjectSettings/VFXManager.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMeshComponents/README.md.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Agent.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Agent.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Button.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Button.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/BridgeBuild.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/BridgeBuild.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AI/NavGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AI/NavGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AI/NavJoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AI/NavJoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AI/NavPlatform.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AI/NavPlatform.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Agent/AgentManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Agent/AgentManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Agent/AgentMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Agent/AgentMovement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/MapController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/MapController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Shoot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Shoot.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,10 +55,28 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6A8DC567-3A4E-4788-B5AC-1561569747AB/0a/a3c6f3e4/Input.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2CE23092-8A98-496B-A12C-A183760FB5F6/91/ea71702d/Gizmos.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/MouseLook.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.0/InputSystem/Actions/InputAction.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/RigidBodyFirstPersonController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6A8DC567-3A4E-4788-B5AC-1561569747AB/0a/a3c6f3e4/Input.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -239,9 +84,17 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Map/ButtonController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/RigidBodyFirstPersonController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/MouseLook.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Shoot.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Map/BridgeBuild.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Agent/AgentManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Map/MapController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AI/NavJoint.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Agent/AgentMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AI/NavPlatform.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AI/NavGenerator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AI/GroupLeader.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AI/GroupFollower.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Shoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AI/NavContainer.cs" />
       </list>
     </option>
   </component>
@@ -255,6 +108,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34994584" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.30010834" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -270,10 +125,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="16872">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="16872" />
       <option name="selectedOptions">
         <set />
       </option>
@@ -292,7 +147,8 @@
       <workItem from="1599149103587" duration="839000" />
       <workItem from="1599154796374" duration="4676000" />
       <workItem from="1599238596201" duration="1036000" />
-      <workItem from="1599296180289" duration="308000" />
+      <workItem from="1599296180289" duration="958000" />
+      <workItem from="1599812252686" duration="18029000" />
     </task>
     <servers />
   </component>
@@ -315,9 +171,77 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state width="1877" height="369" key="GridCell.Tab.0.bottom" timestamp="1599833807842">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="369" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1599833807842" />
+    <state width="1877" height="369" key="GridCell.Tab.0.center" timestamp="1599833807842">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="369" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1599833807842" />
+    <state width="1877" height="369" key="GridCell.Tab.0.left" timestamp="1599833807842">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="369" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1599833807842" />
+    <state width="1877" height="369" key="GridCell.Tab.0.right" timestamp="1599833807842">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="369" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1599833807842" />
+    <state width="1877" height="369" key="GridCell.Tab.1.bottom" timestamp="1599833807843">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="369" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1599833807843" />
+    <state width="1877" height="369" key="GridCell.Tab.1.center" timestamp="1599833807843">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="369" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1599833807843" />
+    <state width="1877" height="369" key="GridCell.Tab.1.left" timestamp="1599833807842">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="369" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1599833807842" />
+    <state width="1877" height="369" key="GridCell.Tab.1.right" timestamp="1599833807843">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="369" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1599833807843" />
+    <state width="1877" height="369" key="GridCell.Tab.2.bottom" timestamp="1599833807843">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="369" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1599833807843" />
+    <state width="1877" height="369" key="GridCell.Tab.2.center" timestamp="1599833807843">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="369" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1599833807843" />
+    <state width="1877" height="369" key="GridCell.Tab.2.left" timestamp="1599833807843">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="369" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1599833807843" />
+    <state width="1877" height="369" key="GridCell.Tab.2.right" timestamp="1599833807843">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="369" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1599833807843" />
+    <state width="1877" height="369" key="GridCell.Tab.3.bottom" timestamp="1599833807844">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="369" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1599833807844" />
+    <state width="1877" height="369" key="GridCell.Tab.3.center" timestamp="1599833807843">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="369" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1599833807843" />
+    <state width="1877" height="369" key="GridCell.Tab.3.left" timestamp="1599833807843">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="369" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1599833807843" />
+    <state width="1877" height="369" key="GridCell.Tab.3.right" timestamp="1599833807844">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="369" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1599833807844" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1599149053981">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1599149053981" />
+    <state x="623" y="225" key="search.everywhere.popup" timestamp="1599828557790">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1599828557790" />
   </component>
 </project>

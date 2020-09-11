@@ -7,43 +7,46 @@ using Random = UnityEngine.Random;
 
 namespace Agent
 {
-    public class AgentManager : MonoBehaviour
-    {
-        public NavGenerator Map;
-        [SerializeField] private List<AgentMovement> Agents;
-        [CanBeNull] public AgentMovement Leader;
+	public class AgentManager : MonoBehaviour
+	{
+		public NavGenerator Map;
+		public Transform Player;
 
-        public void Awake()
-        {
-            Agents = GetComponentsInChildren<AgentMovement>().ToList();
-            PickLeader();
-        }
+		[CanBeNull]
+		public Transform Target { get; set; }
 
-        public void RemoveAgent(AgentMovement agent)
-        {
-            Agents.Remove(agent);
-            if (agent == Leader) PickLeader();
-        }
+		[SerializeField]
+		private List<AgentMovement> Agents;
 
-        public void SetTarget([CanBeNull] Transform destination)
-        {
-            foreach (var agent in Agents)
-            {
-                agent.SetDestination(destination);
-            }
-        }
+		[CanBeNull]
+		public AgentMovement Leader;
 
-        private void PickLeader()
-        {
-            if (Agents.Count == 0)
-            {
-                Leader = null;
-            }
-            else
-            {
-                var random = Random.Range(0, Agents.Count);
-                Leader = Agents[random];
-            }
-        }
-    }
+		public void Awake()
+		{
+			Agents = GetComponentsInChildren<AgentMovement>().ToList();
+			PickLeader();
+		}
+
+		public void RemoveAgent(AgentMovement agent)
+		{
+			Agents.Remove(agent);
+			if (agent == Leader) PickLeader();
+		}
+
+		private void PickLeader()
+		{
+			if (Agents.Count == 0)
+			{
+				Leader = null;
+			}
+			else
+			{
+				var random = Random.Range(0, Agents.Count);
+				var leader = Agents[random];
+				leader.GetComponent<GroupLeader>().enabled = true;
+				leader.GetComponent<GroupFollower>().enabled = false;
+				Leader = leader;
+			}
+		}
+	}
 }

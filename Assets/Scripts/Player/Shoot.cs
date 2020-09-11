@@ -23,6 +23,14 @@ namespace Player
 			FireAction.canceled += FireDisable;
 		}
 
+		private void OnDestroy()
+		{
+			FireAction.Disable();
+
+			FireAction.started -= FireEnable;
+			FireAction.canceled -= FireDisable;
+		}
+
 		private void FireEnable(InputAction.CallbackContext _)
 		{
 			Laser.SetActive(true);

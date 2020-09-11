@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -6,112 +7,103 @@ using Joint = AI.NavPlatform.NavPlatformJoint;
 
 namespace AI
 {
-    public class NavGenerator : MonoBehaviour
-    {
-        [CanBeNull] public NavPlatform Entry;
-        public List<NavPlatform> Platforms;
+	public class NavGenerator : MonoBehaviour
+	{
+		[CanBeNull]
+		public NavPlatform Entry;
 
-        private void Awake()
-        {
-            Scan();
-            DrawRays();
-        }
+		public List<NavPlatform> Platforms;
 
-        public void Scan()
-        {
-            if (Entry is null) return;
+		private void Awake()
+		{
+			Scan();
+		}
 
-            Platforms.Clear();
-            ScanPlatform(Entry);
-        }
+		public void Scan()
+		{
+			if (Entry is null) return;
 
-        [CanBeNull]
-        public NavPlatform GetPlatform(Vector3 position)
-        {
-            return Platforms.FirstOrDefault(platform => platform.Contains(position));
-        }
+			Platforms.Clear();
+			ScanPlatform(Entry);
+		}
 
-        public Stack<Vector3> GetRoute(Vector3 a, Vector3 b)
-        {
-            if ((a - b).sqrMagnitude < 0.1f) return new Stack<Vector3>();
+		[CanBeNull]
+		public INavContainer GetPlatform(Vector3 position)
+		{
+			return Platforms.Select(platform => platform.Contains(position))
+				.FirstOrDefault(platform => !(platform is null));
+		}
 
-            var pa = GetPlatform(a);
-            if (pa is null) return new Stack<Vector3>();
+		public Stack<Vector3> GetRoute(Vector3 a, Vector3 b)
+		{
+			if ((a - b).sqrMagnitude < 0.1f) return new Stack<Vector3>();
 
-            var pb = GetPlatform(b);
-            if (pb is null) return new Stack<Vector3>();
+			var pa = GetPlatform(a);
+			if (pa is null) return new Stack<Vector3>();
 
-            var stack = new Stack<Vector3>();
-            stack.Push(b);
-            if (pa == pb || GetPossibleRoute(pa, new List<NavPlatform>(), pb, ref stack, out _)) return stack;
+			var pb = GetPlatform(b);
+			if (pb is null) return new Stack<Vector3>();
 
-            // Return empty stack:
-            return new Stack<Vector3>();
-        }
+			var stack = new Stack<Vector3>();
+			stack.Push(b);
 
-        private bool GetPossibleRoute(NavPlatform platform, ICollection<NavPlatform> scanned, NavPlatform target,
-            ref Stack<Vector3> stack, out float distance)
-        {
-            // Add the entry to the scan to avoid cyclic scans:
-            scanned.Add(platform);
+			// Return empty stack:
+			if (pa != pb && !GetPossibleRoute(pa.Platform, new List<NavPlatform>(), pb.Platform, ref stack, out _))
+				return new Stack<Vector3>();
 
-            distance = float.MaxValue;
-            Joint? shortestPlatform = null;
+			if (pa.Exit.HasValue) stack.Push(pa.Exit.Value);
+			return stack;
+		}
 
-            foreach (var joint in platform.Connections.Where(joint => !scanned.Contains(joint.Platform)))
-            {
-                // Check whether the platform we are scanning is the target:
-                if (joint.Platform == target)
-                {
-                    shortestPlatform = joint;
-                    break;
-                }
+		private bool GetPossibleRoute(NavPlatform platform, ICollection<NavPlatform> scanned, NavPlatform target,
+			ref Stack<Vector3> stack, out float distance)
+		{
+			// Add the entry to the scan to avoid cyclic scans:
+			scanned.Add(platform);
 
-                // If no route was found, skip:
-                if (!GetPossibleRoute(joint.Platform, scanned, target, ref stack, out var possibleDistance))
-                    continue;
+			distance = float.MaxValue;
+			Joint shortestPlatform = null;
 
-                // If the route was longer than the previous, skip:
-                if (possibleDistance >= distance) continue;
+			foreach (var joint in platform.Connections.Where(joint => !scanned.Contains(joint.TargetPlatform)))
+			{
+				// Check whether the platform we are scanning is the target:
+				if (joint.TargetPlatform == target)
+				{
+					shortestPlatform = joint;
+					break;
+				}
 
-                // Set the new shortest route:
-                distance = possibleDistance;
-                shortestPlatform = joint;
-            }
+				// If no route was found, skip:
+				if (!GetPossibleRoute(joint.TargetPlatform, scanned, target, ref stack, out var possibleDistance))
+					continue;
 
-            if (!shortestPlatform.HasValue) return false;
+				// If the route was longer than the previous, skip:
+				if (possibleDistance >= distance) continue;
 
-            stack.Push(shortestPlatform.Value.OutPosition);
-            stack.Push(shortestPlatform.Value.InPosition);
-            distance = shortestPlatform.Value.Distance;
-            return true;
-        }
+				// Set the new shortest route:
+				distance = possibleDistance;
+				shortestPlatform = joint;
+			}
 
-        private void ScanPlatform([CanBeNull] NavPlatform platform)
-        {
-            if (platform is null) return;
+			if (shortestPlatform is null) return false;
 
-            Platforms.Add(platform);
-            platform.Refresh();
+			stack.Push(shortestPlatform.OutPosition);
+			stack.Push(shortestPlatform.InPosition);
+			distance = shortestPlatform.Distance;
+			return true;
+		}
 
-            foreach (var joint in platform.Connections.Where(joint => !Platforms.Contains(joint.Platform)))
-            {
-                ScanPlatform(joint.Platform);
-            }
-        }
+		private void ScanPlatform([CanBeNull] NavPlatform platform)
+		{
+			if (platform is null) return;
 
-        private void DrawRays()
-        {
-            var start = new Vector3(17, 2, 0);
-            var route = GetRoute(start, new Vector3(30, -7, -28));
-            if (route.Count == 0) return;
+			Platforms.Add(platform);
+			platform.Refresh();
 
-            while (route.Count > 0)
-            {
-                var next = route.Pop();
-                Debug.DrawLine(start, next, Color.yellow, 30f);
-                start = next;
-            }
-        }
-    }
+			foreach (var joint in platform.Connections.Where(joint => !Platforms.Contains(joint.TargetPlatform)))
+			{
+				ScanPlatform(joint.TargetPlatform);
+			}
+		}
+	}
 }

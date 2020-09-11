@@ -16,6 +16,7 @@ namespace Map
 		public void Awake()
 		{
 			if (ConnectionIndex == -1 && Buttons.Length != 0) ConnectionIndex = 0;
+			ReTarget();
 		}
 
 		public void Advance()
@@ -32,7 +33,7 @@ namespace Map
 
 		private void ReTarget()
 		{
-			AgentManager.SetTarget(Current != null ? Current.transform : null);
+			AgentManager.Target = Current != null ? Current.transform : null;
 		}
 	}
 }
